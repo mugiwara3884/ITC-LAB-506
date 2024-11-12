@@ -1,0 +1,127 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Layout container */
+.layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 300px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "sidebar main-content advertisement"
+        "footer footer footer";
+    height: 100vh; /* Ensure it fills the full viewport */
+    overflow: hidden; /* Hide any overflow that may cause additional space */
+}
+
+/* Header */
+header {
+    grid-area: header;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0; /* Ensure no margin adds extra space */
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar nav ul li a:hover {
+    color: #4CAF50;
+}
+
+/* Main Content Area */
+.main-content {
+    grid-area: main-content;
+    padding: 20px;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    margin-top: 0; /* Remove any unwanted top margin */
+    height: calc(100vh - 40px); /* Ensure main content area adjusts to height minus header/footer */
+}
+
+/* Button Styling */
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#dynamicContent p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Advertisement */
+.advertisement {
+    grid-area: advertisement;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+.advertisement img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0; /* Reduced padding to minimize space */
+    font-size: 14px;
+    margin: 0; /* Ensure no extra margin */
+}
+
+footer p {
+    margin-bottom: 1px;
+}
+
+footer strong {
+    font-size: 16px;
+    display: block;
+    margin-top: 10px;
+}
+
+h3#unsortedArray, h3#sortedArray {
+    min-height: 30px; /* Adjust as needed */
+    margin: 5px 0; /* Optional for spacing consistency */
+}

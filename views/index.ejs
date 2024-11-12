@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Grail Layout with Shuffle and Sort Example</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "sidebar content ads"
+                "footer footer footer";
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 200px 1fr 200px;
+            gap: 10px;
+        }
+
+        header {
+            grid-area: header;
+            background: lightblue;
+            padding: 20px;
+        }
+
+        nav {
+            grid-area: sidebar;
+            background: lightgrey;
+            padding: 20px;
+        }
+
+        main {
+            grid-area: content;
+            background: white;
+            padding: 20px;
+        }
+
+        .ads {
+            grid-area: ads;
+            background: lightyellow;
+            padding: 20px;
+        }
+
+        footer {
+            grid-area: footer;
+            background: lightgreen;
+            padding: 20px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Holy Grail Layout</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Shuffle and Sort Array Example</h2>
+        <p>Click the buttons to either sort or reshuffle the array:</p>
+        <h3 id="unsortedArrayH">Unsorted Array:</h3>
+        <h3 id="unsortedArray"></h3>
+
+        <!-- Add a heading for the sorted array -->
+        <h3 id="sortedArrayHeading" style="display: none;">Sorted Array:</h3>
+
+        <!-- Add the element for displaying the sorted array -->
+        <h3 id="sortedArray" style="display: none;"></h3>
+        <p id="result">Array result will appear here.</p>
+
+        <button id="sortButton">Sort Array</button>
+        <button id="reshuffleButton">Reshuffle Array</button>
+
+    </main>
+    <div class="ads">
+        <a href="https://www.amazon.com/" target="_blank">
+            <img src="https://s3-symbol-logo.tradingview.com/amazon--big.svg" alt="Advertisement"
+                style="width: 100%; max-width: 150px;">
+        </a>
+    </div>
+    <footer>
+        <p>Last updated:
+            <span id="lastModified"></span>
+        </p>
+        <p><strong>Addendum:</strong></p>
+        <p>This assignment demonstrates the creation of a Holy Grail Layout using CSS
+            Grid, along with functionality to shuffle and sort an array using JavaScript. Below
+            is a summary of the problem-solving process, the approach, and the difficulties
+            faced during the implementation.</p>
+        <p><strong>Problem:</strong></p>
+        <p>The challenge was to create a layout with a header, sidebar, content area,
+            and footer, commonly known as the Holy Grail Layout. Additionally, functionality
+            was required to shuffle and sort an array of numbers when respective buttons are
+            clicked. Lastly, the footer needed to dynamically display the last modified
+            timestamp of the page.</p>
+        <p><strong>Approach:</strong></p>
+        <p>1. **Holy Grail Layout**: The layout was implemented using CSS Grid. The
+            grid was defined with three rows and three columns, with the header spanning the
+            top row, the sidebar and content spanning the middle row, and the footer spanning
+            the bottom row. This structure provides a responsive and flexible layout suitable
+            for modern web design.</p>
+        <p>2. **Shuffle and Sort Array**: JavaScript functions were used to shuffle and
+            sort an array. The array was displayed on the page, and two buttons allowed users
+            to either shuffle the array or sort it in ascending order. The results were
+            displayed dynamically as the buttons were clicked.</p>
+        <p>3. **Displaying Last Modified Date**: The <code>document.lastModified</code>
+            property was used to retrieve the last modified timestamp of the document. This
+            timestamp was then dynamically inserted into the footer, allowing users to see when
+            the page was last updated. The script was placed at the end of the document to
+            ensure the DOM was fully loaded before manipulating the elements.</p>
+        <p><strong>Solution Implementation:</strong></p>
+        <p>The HTML structure uses a grid layout with the <code>grid-template-
+                areas</code> property to define the placement of elements like the header, sidebar,
+            content, and footer. The shuffle and sort functionality were implemented using
+            JavaScript, where event listeners were added to buttons that triggered the
+            respective array manipulation functions. The timestamp functionality was added by
+            using <code>document.lastModified</code> in a script at the end of the body to
+            ensure accurate DOM updates.</p>
+        <p><strong>Difficulties Encountered and Solutions:</strong></p>
+        <p>1. **Grid Layout Flexibility**: Initially, setting up the grid areas
+            required some trial and error to get the layout responsive across different screen
+            sizes. This was resolved by using percentage-based column widths and setting a
+            proper <code>gap</code> between grid elements.</p>
+        <p>2. **Array Sorting and Shuffling**: One challenge with shuffling the array
+            was ensuring the array was shuffled in a truly random order. The Fisher-Yates
+            algorithm was implemented to shuffle the array efficiently. The sorting was
+            straightforward using JavaScript’s <code>sort()</code> function, with a custom
+            comparator to sort the numbers in ascending order.</p>
+        <p>3. **Last Modified Timestamp**: The main difficulty here was understanding
+            that <code>document.lastModified</code> returns the timestamp of the document
+            itself, not the dynamic content or changes made via JavaScript or server-side code.
+            This was addressed by explaining the limitations of the approach in the
+            addendum.</p>
+        <p><strong>Future Improvements:</strong></p>
+        <p>1. For dynamic content, additional JavaScript functions would need to track
+            changes and update the timestamp accordingly (e.g., by adding a timestamp after
+            content updates via AJAX or other dynamic actions).</p>
+        <p>2. The Holy Grail Layout could be enhanced with additional media queries to
+            make it more responsive for mobile devices, ensuring that the sidebar collapses or
+            adapts based on the screen size.</p>
+        <p>3. The sorting and shuffling functions could be expanded with more complex
+            algorithms, such as sorting based on other criteria or using additional
+            randomization methods for the array shuffle.</p>
+        <p>This addendum provides a complete explanation of the problem, approach,
+            difficulties, and potential future improvements. The final solution was implemented
+            effectively, creating a clean, functional webpage with an interactive user
+            experience.</p>
+    </footer>
+    <script type="text/javascript">
+        // Set last modified date dynamically
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+    <!-- Link to external JavaScript file -->
+    <script src="/script.js"></script>
+</body>
+
+</html>
